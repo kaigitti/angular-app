@@ -1,0 +1,186 @@
+<div class="container" style="margin-top:80px;">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            
+            <div class="col-md-7">
+                <form [formGroup]="UserForm">
+                    <div class="card">                        
+                     <div class="col-md-10">
+                        <br><br>
+                            <label style="color: rgb(219, 91, 0);position: relative;left:20%; font-size:34px;font-weight:650">&nbsp;&nbsp;Create your account</label>  
+                            <br>
+                            <label style="position: relative;left:25%; font-weight:500; color: rgb(91, 92, 92);">&nbsp;&nbsp;&nbsp;&nbsp;Already have an account? </label>&nbsp;&nbsp;
+                            <label style="color:rgb(20, 101, 194); position: relative;left:25%;font-weight:700; font-size:20px;" data-toggle="modal" data-target="#exampleModal" (click)="BackSignin()">Sign In</label>
+                         </div>
+                         <div class="row">
+                            
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <img *ngIf="previewLoaded" class="img-thumbnail" [src]="this.UserForm.value.img" style="height:150px; position:relative;left:30%">       
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body" style="text-align: center;">
+                            <div class="row">
+                                <div class="col-md-9" >
+                                    <div class="form-group">
+                                      <input type="text" class="form-control" placeholder="Enter Username" style="background: rgb(222, 223, 223); position:absolute; left:15%;" formControlName='username'>
+                                    </div> 
+                                </div>
+                                <div style="position:absolute;top:20%; left:90%;width:200px;" *ngIf="username.errors && (username.dirty || username.touched)" class="alert alert-danger">
+                                    <div *ngIf="username.errors.required">
+                                      username is required.
+                                    </div>
+                                </div>
+                            </div> 
+                            
+
+
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <br><br>
+                                      <input type="password" class="form-control" placeholder="Enter Password" style="background: rgb(222, 223, 223); position:absolute; left:15%;" formControlName='password'>
+                                      <div style="position:absolute; left:121%; top:60%; width:200px;" *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
+                                        <div *ngIf="password.errors.required">
+                                          password is required.
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <br><br>
+                                      <input type="text" class="form-control" placeholder="Enter Firstname" style="background: rgb(222, 223, 223); position:absolute; left:15%;" formControlName='firstname'>
+                                      <div style="position:absolute; left:121%; top:60%; width:200px;" *ngIf="firstname.errors && (firstname.dirty || firstname.touched)" class="alert alert-danger">
+                                        <div *ngIf="password.errors.required">
+                                          firstname is required.
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <br><br>
+                                      <input type="text" class="form-control" placeholder="Enter Lastname" style="background: rgb(222, 223, 223); position:absolute; left:15%;" formControlName='lastname'>
+                                      <div style="position:absolute; left:121%; top:60%; width:200px;" *ngIf="lastname.errors && (lastname.dirty || lastname.touched)" class="alert alert-danger">
+                                        <div *ngIf="lastname.errors.required">
+                                          lastname is required.
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <br><br>
+                                      <input type="text" class="form-control" placeholder="Enter email" style="background: rgb(222, 223, 223); position:absolute; left:15%;" formControlName='email'>
+                                      <div style="position:absolute; left:121%; top:60%; width:200px;" *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                                        <div *ngIf="email.errors.required">
+                                          email is required.
+                                        </div>
+                                        <div *ngIf="email.errors.email">
+                                            Your email is incorrect!!
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <br><br>
+                                        <select class="form-control" style="background: rgb(222, 223, 223); position:absolute; left:45%;" formControlName="gender">
+                                          <option value="">Gender</option>
+                                          <option *ngFor="let item of genderGeneral" [value]="item">{{item}}</option>
+                                        </select>
+                                        <div style="position:absolute; left:150%; top:60%; width:200px;" *ngIf="gender.errors && (gender.dirty || gender.touched)" class="alert alert-danger">
+                                            <div *ngIf="gender.errors.required">
+                                                gender is required.
+                                            </div>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <br><br>
+                                        <label style="font-size:17px;position:absolute; left:70%;">Birthday</label>
+                                        <br><br>
+                                        <select class="form-control" style="background: rgb(222, 223, 223);width:90px;position: relative; left: 70%;" formControlName="dd">
+                                          <option value="">Day</option>
+                                          <option *ngFor="let item of birthday_dd" [value]="item">{{item}}</option>
+                                        </select>
+                                        <div style="position:absolute; left:55%; top:90%; width:120px; height:45px;" *ngIf="dd.errors && (dd.dirty || dd.touched)" class="alert alert-danger">
+                                            <div *ngIf="dd.errors.required">
+                                                select day
+                                            </div>
+                                        </div>
+                                      </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <br><br><br><br>
+                                        <select class="form-control" style="background: rgb(222, 223, 223); position: relative; left: 50%;width:150px;" formControlName="mm">
+                                          <option value="">Month</option>
+                                          <option *ngFor="let item of birthday_mm" [value]="item">{{item}}</option>
+                                        </select>
+                                        <div style="position:absolute; left:50%; top:30%; width:158px; height:42px;" *ngIf="mm.errors && (mm.dirty || mm.touched)" class="alert alert-danger">
+                                            <div *ngIf="mm.errors.required">
+                                                select month
+                                            </div>
+                                        </div>
+                                      </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <br><br><br><br>
+                                        <select class="form-control" style="background: rgb(222, 223, 223); position: relative; left:70%;width:90px;" formControlName="yy">
+                                          <option value="">Year</option>
+                                          <option *ngFor="let item of birthday_yy" [value]="item">{{item}}</option>
+                                        </select>
+                                        <div style="position:absolute; left:55%; top:90%; width:120px; height:45px;" *ngIf="yy.errors && (yy.dirty || yy.touched)" class="alert alert-danger">
+                                            <div *ngIf="yy.errors.required">
+                                                select year
+                                            </div>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <br><br>
+                                        <label style="font-size:17px;position:absolute; left:15%;">Select Profile Picture</label>
+                                      <input type="file" class="form-control-file" style="position:absolute; left:55%;" formControlName='file' (change)="onChangeImg($event)">
+                                    </div>
+                                </div>
+                            </div>
+                                              
+
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <br><br>
+                                    <button type="button" style="border:none;background-color: rgb(240, 124, 41);color: white ;width:80%; height:45px; font-weight:bold; font-size:20px;position:absolute; left:12%;" (click)="addUser()">Sign up</button>
+                                    <br><br>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-8">
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit, DoBootstrap } from '@angular/core';
 import { FormControl, FormGroup, Validators,} from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { StoredbService } from '../../services/storedb.service';
 
@@ -11,6 +12,7 @@ import { StoredbService } from '../../services/storedb.service';
 export class AddproductsComponent implements OnInit {
 
   // product_Type: String[] = ['Food','Drink','Snack','Phamarcy','Healthy','Electronics','Home appliance'];
+
   id = "";
   detail = "";
   name = "";
@@ -28,7 +30,9 @@ export class AddproductsComponent implements OnInit {
 
   previewLoaded: boolean = false;
 
-  constructor(private stdb: StoredbService) { }
+  constructor(private stdb: StoredbService,
+              private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -64,6 +68,10 @@ export class AddproductsComponent implements OnInit {
         };
       }
     }
+  }
+
+  navigateToManager(){
+    this.router.navigate(['/manager']);
   }
 
   resetForm() {

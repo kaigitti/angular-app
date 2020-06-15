@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { LocalStorageService } from 'angular-web-storage';
+import { Local } from 'protractor/built/driverProviders';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +11,16 @@ export class StoredbService {
 
   baseUrl = 'http://localhost:3000';  
   storedb: any;
+  token: any;
 
-  constructor(private http: HttpClient) { }
+  constructor( private http: HttpClient, public local: LocalStorageService) {
+    
+  }
 
   showItems(){
-    return this.http.get(this.baseUrl + '/getItems')
+    this.token = this.local.get('user').token;
+    const headers = {'Authorization': this.token}
+    return this.http.get(this.baseUrl + '/products/manager',{headers})
     .pipe(map(data => {
       if(data){
         this.storedb = data;
@@ -24,28 +31,19 @@ export class StoredbService {
   }
 
   addItems(storedb){
-    return this.http.post(this.baseUrl + '/addItems', storedb)
+    
+    return this.http.post(this.baseUrl + '/products/addItems', storedb)
     .pipe(map(data => {
       return data;
     }))
   }
 
-  updateItems(id,name,detail,quantity,price){
-    const obj = {
-      id,
-      name,
-      detail,
-      quantity,
-      price 
-    }
-    return this.http.put(this.baseUrl + '/updateItems/' + id, obj).subscribe(res => {
-      this.storedb.navigate(['stdb'])
-    });
-    
+  updateItems(id, data){
+    return this.http.put(this.baseUrl + '/updateItems/' + id, data)
   }
 
   deleteItems(id){
-    return this.http.delete(this.baseUrl + '/deleteItems/' + id);
+    return this.http.delete(this.baseUrl + '/products/deleteItems/' + id);
   }
 
 }
