@@ -1,0 +1,157 @@
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Add Product</h4>
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-8">
+                <form [formGroup]="product_Form">
+                    <div class="card">
+                        <div class="card-header">
+                            Product Form
+                        </div>
+                        <div class="card-body">
+                            <!-- <div class="row">
+                                <div class="col-md-3">
+                                    Product Type:
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <select class="form-control" formControlName="type">
+                                          <option value=""></option>
+                                          <option *ngFor="let item of product_Type" [value]="item">{{item}}</option>
+                                        </select>
+                                      </div>
+                                </div>
+                            </div> -->
+                            <div class="row">
+                                <div class="col-md-3">
+                                    ID:
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input [(ngModel)]="id" type="text" class="form-control" formControlName='p_id'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    Name:
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input [(ngModel)]="name" type="text" class="form-control"
+                                            formControlName='p_name'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    Detail:
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input [(ngModel)]="detail" type="text" class="form-control"
+                                            formControlName='p_detail'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    Quantity:
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input [(ngModel)]="qtt" type="number" class="form-control"
+                                            formControlName='p_quantity'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    Price:
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input [(ngModel)]="price" type="number" class="form-control"
+                                            formControlName='p_price'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    Image:
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="file" class="form-control-file" formControlName='p_img'
+                                            (change)="onChangeImg($event)">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+
+                                </div>
+                                <div class="col-md-9">
+                                    <img *ngIf="previewLoaded" class="img-thumbnail" [src]="this.product_Form.value.img"
+                                        style="height:150px;">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#exampleModal">
+                                        Add
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Please check your
+                                                        Item</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <pre>
+ID :            {{id}}
+Name :          {{name}}
+Detail :        {{detail}}
+Quantity :      {{qtt}}
+Price :         {{price}}
+                                                    </pre>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Back</button>
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                        (click)="addItems()">Add Item</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="reset" class="btn btn-danger" (click)="resetForm()"
+                                        style="margin-left: 20px">Reset</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-8">
+
+            </div>
+        </div>
+    </div>
+</div>
