@@ -7,7 +7,6 @@ import { EditproductsComponent } from './components/editproducts/editproducts.co
 import { SigninComponent } from './components/signin/signin.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SignupComponent } from './components/signup/signup.component';
-
 import { PaymentComponent } from './components/payment/payment.component';
 import { AddressComponent } from './components/address/address.component';
 import { PayComponent } from './components/pay/pay.component';
@@ -16,26 +15,21 @@ import { UpdateaddressComponent } from './components/updateaddress/updateaddress
 
 const routes: Routes = [
   { 
-    path: 'manager', 
+    path: 'showproducts', 
     component: ShowproductsComponent 
-  },
-  { 
+  },{ 
     path: 'additem', 
     component: AddproductsComponent 
-  },
-  { 
+  },{ 
     path: 'edit', 
     component: EditproductsComponent 
-  },
-  {
+  },{
     path: 'signin', 
     component: SigninComponent
-  },
-  {
+  },{
     path: 'profile', 
     component: ProfileComponent
-  },
-  {
+  },{
     path: 'signup', 
     component: SignupComponent
   },
