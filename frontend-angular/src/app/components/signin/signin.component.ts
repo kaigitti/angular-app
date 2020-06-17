@@ -34,10 +34,10 @@ export class SigninComponent implements OnInit {
       data => {
         if(data.status == true){  
           if(data.result.accountStatus == 'admin'){
-            alert('Sign in Seccess!');
+            alert('Sign in (As Admin) Success!');
             this.router.navigate(['/manager']);
           }else{
-            alert('Sign in Seccess!(user)');
+            alert('Sign in Success!');
             this.router.navigate(['/profile']);
           }
         }else{

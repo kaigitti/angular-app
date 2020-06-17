@@ -1,58 +1,59 @@
-<div class="container" style="margin-top:20px">
-    <div class="row">
-        <div class="col-md-3" style="background-color: rgb(128, 106, 106);">
-            
-        </div>
-        <div class="col-md-11">
-            <div class="card">
-                <div class="card-header" style="background-color: rgb(240, 124, 41);">
-                    <label style="font-size: 30px; font-weight: 500;">Account Information</label>
-                </div>
-                <form>
-
-                    <div class="card-body" style="background-color: rgb(228, 228, 228);">
-                        <div class="row">
-                            <div class="col-md-4" *ngFor="let item of profile; index as i">
-                                <img [src]="item.img" style="height:300px; position:relative; left:12%">
-                            </div>
-                            <div class="col-md-1">
-
-                            </div>
-
-                            <div class="col-md-6" style="margin-top: 20px;">
-                                <div class="form-group"  *ngFor="let item of profile; index as i">
-                                    <label style="font-size: 40px; font-weight: 600;">{{item.firstname}}&nbsp;&nbsp;{{item.lastname}}</label>
-                                    <br>
-                                    <label style="color: rgb(226, 80, 43); width: 90px; font-size: 20px; position:relative; left:8%"><i class='fa fa-user'>&nbsp;&nbsp;:</i></label>
-                                    <label style="font-size: 20px;">{{item.username}}</label>
-                                   <br>
-
-                                    <label><label style="color: rgb(226, 80, 43); width: 90px; font-size: 20px; position:relative; left:38%"><i class="fa fa-mars">&nbsp;&nbsp;:</i></label></label>
-                                    <label style="font-size: 20px;">{{item.gender}}</label>
-                                    <br>
-                                  
-                                    <label><label style="color: rgb(226, 80, 43); width: 90px; font-size: 20px; position:relative; left:38%"><i class="fa fa-birthday-cake">&nbsp;&nbsp;:</i></label></label>
-                                    <label style="font-size: 20px;">{{item.dd}}&nbsp;&nbsp;{{item.mm}}&nbsp;&nbsp;{{item.yy}}</label>                                    
-
-                                    <br>
-
-                                    <label><label style="color: rgb(226, 80, 43); width: 90px; font-size: 20px; position:relative; left:38%"><i class="fa fa-envelope">&nbsp;&nbsp;:</i></label></label>
-                                    <label style="font-size: 20px;">{{item.email}}</label>
-                                </div>
-                                
-                            </div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header" style="background-color: rgb(240, 124, 41);">
+                <label style="font-size: 30px; font-weight: 500;">Account Information</label>
+            </div>
+            <form>
+                <div class="card-body" style="background-color: rgb(228, 228, 228);">
+                    <div class="row">
+                        <div class="col-md-4" *ngFor="let item of profile; index as i">
+                            <img [src]="item.img" style="height:300px; position:relative; left:12%">
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                
+
+                        <div class="col-md-6" style="margin-top: 20px;">
+                            <div class="form-group" *ngFor="let item of profile; index as i">
+                                <label
+                                    style="font-size: 40px; font-weight: 600;">{{item.firstname}}&nbsp;&nbsp;{{item.lastname}}</label>
+                                <br>
+                                <label
+                                    style="color: rgb(226, 80, 43); width: 90px; font-size: 20px; position:relative; left:8%"><i
+                                        class='fa fa-user'>&nbsp;&nbsp;:</i></label>
+                                <label style="font-size: 20px;">{{item.username}}</label>
+                                <br>
+
+                                <label><label
+                                        style="color: rgb(226, 80, 43); width: 90px; font-size: 20px; position:relative; left:38%"><i
+                                            class="fa fa-mars">&nbsp;&nbsp;:</i></label></label>
+                                <label style="font-size: 20px;">{{item.gender}}</label>
+                                <br>
+
+                                <label><label
+                                        style="color: rgb(226, 80, 43); width: 90px; font-size: 20px; position:relative; left:38%"><i
+                                            class="fa fa-birthday-cake">&nbsp;&nbsp;:</i></label></label>
+                                <label
+                                    style="font-size: 20px;">{{item.dd}}&nbsp;&nbsp;{{item.mm}}&nbsp;&nbsp;{{item.yy}}</label>
+
+                                <br>
+
+                                <label><label
+                                        style="color: rgb(226, 80, 43); width: 90px; font-size: 20px; position:relative; left:38%"><i
+                                            class="fa fa-envelope">&nbsp;&nbsp;:</i></label></label>
+                                <label style="font-size: 20px;">{{item.email}}</label>
                             </div>
+                            
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-danger" style="margin-top:280px" (click)="logout()">Log Out</button>
                         </div>
                     </div>
-                </form>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <button class="btn btn-danger" style="margin-left:1350px" (click)="logout()">Log Out</button>
+                   
+                </div>
+            </form>
         </div>
     </div>
+
 </div>
+
+
+<!-- <button class="btn btn-danger" style="margin-left:1350px" (click)="logout()">Log Out</button> -->

@@ -19,20 +19,6 @@ var storeSchema = new mongoose.Schema({
     collection: 'products'
 });
 
-// var cartSchema = new mongoose.Schema({
-//     c_id: String,
-//     c_name: String,
-//     c_detail: String,
-//     c_quantity: Number,
-//     c_price: Number,
-//     c_file: String,
-//     c_img: String
-// }, {
-//     collection: 'carts'
-// })
-
-// let itemInCart = mongoose.model('carts', cartSchema);
-
 let Product = mongoose.model('products', storeSchema);
 
 router.route('/manager').get((req, res) => {
@@ -84,7 +70,6 @@ router.route('/showproducts/:p_id').get((req,res) => {
     })
 })
 
-
 router.route('/addItems').post((req, res) => {
     Product.insertMany(req.body)
         .then(result => {
@@ -102,16 +87,6 @@ router.route('/deleteItems/:p_id').delete(async (req, res) => {
     await Product.findByIdAndDelete(p_id)
     res.status(204).end()
 })
-
-// router.route('/showItemInCart').get((req, res) => {
-//     itemInCart.find((err, data) => {
-//         if (err) {
-//             console.log(err);
-//         } else {
-//             res.status(200).json(data);
-//         }
-//     })
-// })
 
 router.route('/addItemsToCart:p_id').post((req, res) => {
     itemInCart.insertMany(req.body)
