@@ -31,10 +31,6 @@ expressApp.use('/login', require('./routes/signin.js'))
 expressApp.use('/api', require('./api/profile.js'))
 expressApp.use('/products', require('./routes/products.js'));
 
-expressApp.use('/address', require('./routes/address.js'));
-
-
-
 expressApp.listen(3000, function(){
     console.log('Listening on port: 3000');
 });

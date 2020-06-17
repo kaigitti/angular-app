@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { StoredbService } from '../../services/storedb.service';
-import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
+
+import { StoredbService } from '../../services/storedb.service';
+import { CartService } from '../../services/cart.service';
 
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -22,14 +22,21 @@ export class ShowproductsComponent implements OnInit {
   faPlus = faPlus;
 
   storedb: any;
+  counter = 0;
+  sumPrice = 0;
+  itemInCart: any = [];
+  product: any[]=[];
+
+  cartItem: any;
+
+  itemArray: any[]=[];  
 
   searchText;
 
-  constructor(
-    private stdb: StoredbService, 
-    private http: HttpClient,
-    private router: Router) { 
+  constructor( private stdb: StoredbService, private router: Router, private cart: CartService) 
+  { 
     this.onLoading();
+    // this.cart = this.cart.getItemInCart();
   }
 
   ngOnInit(): void {
@@ -37,34 +44,49 @@ export class ShowproductsComponent implements OnInit {
 
   onLoading(){
     try {
-      this.stdb.showItems().subscribe(
+      this.stdb.showItemsUser().subscribe(
         data => {
           this.storedb = data;
         },
         err => {
           console.log(err)
-          this.router.navigate(['/signin']);
         }
       )
     } catch (error) {
       console.log(error)
     }
   }
-  
-  deleteItems(event){
-    this.stdb.deleteItems(event).subscribe(
-      data => {
-        console.log(data)
-        alert('Delete Success!');
-        this.onLoading();
-      },
-      err => {
-        console.log(err);
-      });
+
+  getId(p_id){
+
+    return this.stdb.getSomeProduct(p_id).subscribe( product => {
+      this.cartItem = product;
+      this.product.push(product);
+      this.counter = this.counter + 1
+      console.log(this.product)
+    });
+    
   }
 
-  navigateToAddProducts(){
-    this.router.navigate(['/additem']);
+  getProduct(){ 
+    var array=[];
+      this.product.forEach(item => {
+      array.push(item)
+    });
+    return array;
+  }
+
+  addToCart(p_id){
+    
+    return this.getId(p_id);
+  }
+
+  getCounter(){ 
+    return this.cart.getCounter();
+  }
+
+  getSumPrice(){ 
+    return this.cart.getSumPrice();
   }
 
 }

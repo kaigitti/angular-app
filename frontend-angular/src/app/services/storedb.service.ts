@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { LocalStorageService } from 'angular-web-storage';
-import { Local } from 'protractor/built/driverProviders';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +29,17 @@ export class StoredbService {
     }));
   }
 
+  showItemsUser(){
+    return this.http.get(this.baseUrl + '/products/showproducts')
+    .pipe(map(data => {
+      if(data){
+        this.storedb = data;
+        console.log(this.storedb);
+      }
+      return this.storedb;
+    }));
+  }
+
   addItems(storedb){
     
     return this.http.post(this.baseUrl + '/products/addItems', storedb)
@@ -38,12 +48,20 @@ export class StoredbService {
     }))
   }
 
-  updateItems(id, data){
-    return this.http.put(this.baseUrl + '/updateItems/' + id, data)
-  }
-
   deleteItems(id){
     return this.http.delete(this.baseUrl + '/products/deleteItems/' + id);
   }
+
+  getSomeProduct(p_id){
+    return this.http.get(this.baseUrl + '/products/showproducts/' + p_id)
+    .pipe(map(data => {
+      if(data){
+        this.storedb = data;
+        console.log(this.storedb);
+      }
+      return this.storedb;
+    }));
+  }
+
 
 }

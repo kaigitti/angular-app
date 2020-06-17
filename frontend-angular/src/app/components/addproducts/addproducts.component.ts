@@ -31,9 +31,7 @@ export class AddproductsComponent implements OnInit {
 
   previewLoaded: boolean = false;
 
-  constructor(private stdb: StoredbService,
-              private router: Router
-  ) { }
+  constructor(private stdb: StoredbService, private router: Router) { }
 
   ngOnInit(): void {
   }

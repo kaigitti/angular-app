@@ -27,6 +27,7 @@ export class ProfileComponent implements OnInit {
       );
     } catch (error) {
       console.log(error);
+      this.router.navigate(['/signin']);
     }
 
     
@@ -34,6 +35,11 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+  logout (){
+    window.localStorage.removeItem('user')
+    this.router.navigate(['/signin']);
   }
 
 }

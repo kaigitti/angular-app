@@ -13,6 +13,7 @@ export class SigninComponent implements OnInit {
   accountStatusType: String[] = ['admin','user'];
 
   profile: any;
+  hidden: boolean;
 
   authForm = new FormGroup({
     username: new FormControl('',[Validators.required]),
