@@ -1,5 +1,5 @@
 import { Component, OnInit, DoBootstrap } from '@angular/core';
-import { FormControl, FormGroup, Validators,} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { StoredbService } from '../../services/storedb.service';
@@ -25,6 +25,7 @@ export class AddproductsComponent implements OnInit {
     p_detail: new FormControl('', [Validators.required]),
     p_quantity: new FormControl('', [Validators.required]),
     p_price: new FormControl('', [Validators.required]),
+    file: new FormControl('', [Validators.required]),
     p_img: new FormControl('',[Validators.required]),
   });
 
@@ -63,7 +64,7 @@ export class AddproductsComponent implements OnInit {
         reader.onload = () => {
           this.previewLoaded = true;
           this.product_Form.patchValue({
-            img: reader.result
+            p_img: reader.result
           });
         };
       }

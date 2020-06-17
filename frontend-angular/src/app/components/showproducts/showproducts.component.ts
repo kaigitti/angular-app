@@ -43,6 +43,7 @@ export class ShowproductsComponent implements OnInit {
         },
         err => {
           console.log(err)
+          this.router.navigate(['/signin']);
         }
       )
     } catch (error) {

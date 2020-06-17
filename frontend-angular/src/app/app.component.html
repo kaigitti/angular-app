@@ -1,21 +1,30 @@
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
-    aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a routerLink="showproducts" class="navbar-brand btn btn-dark">Home</a>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <!-- <li class="nav-item">
-        <a routerLink="manager" routerLinkActive="active" class="btn btn-dark">Manager</a>
-      </li> -->
-      <!-- <li class="nav-item">
-        <a routerLink="signin" routerLinkActive="active" class="btn btn-danger" style="margin-left:1635px">Logout</a>
-      </li> -->
-    </ul>
-  </div>
-</nav>
+<div class="bg">
+  
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#4c92df">
+    <a class="navbar-brand" href="home">
+      <h4 class="modal-title" style="color:#003c7e;">
+        <i class="fa fa-shopping-bag" aria-hidden="true" style='font-size:30px; color:#003c7e;'></i>&nbsp;&nbsp;Easy Shop
+      </h4>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#" style='font-size:20px; margin-top:5px; margin-left:10px'>Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" style='font-size:20px; margin-top:5px; margin-left:10px'>Link</a>
+        </li>
+  
+      </ul>
+    </div>
+  </nav>
 
-<div class="container-fluid" style="margin-top:60px">
-  <router-outlet></router-outlet>
+  <div class="container-fluid" style="margin-top:60px">
+    <router-outlet></router-outlet>
+  </div>
 </div>
