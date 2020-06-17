@@ -11,15 +11,15 @@ export class StoredbService {
 
   baseUrl = 'http://localhost:3000';  
   storedb: any;
-  token: any;
+ 
 
   constructor( private http: HttpClient, public local: LocalStorageService) {
     
   }
 
-  showItems(){
-    this.token = this.local.get('user').token;
-    const headers = {'Authorization': this.token}
+  showItems(token: any){
+    
+    const headers = {'Authorization': token}
     return this.http.get(this.baseUrl + '/products/manager',{headers})
     .pipe(map(data => {
       if(data){

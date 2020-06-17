@@ -3,6 +3,8 @@ import { StoredbService } from '../../services/storedb.service';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { LocalStorageService } from 'angular-web-storage';
+
 
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -22,13 +24,15 @@ export class ShowproductsComponent implements OnInit {
   faPlus = faPlus;
 
   storedb: any;
+  token: any;
 
   searchText;
 
   constructor(
     private stdb: StoredbService, 
     private http: HttpClient,
-    private router: Router) { 
+    private router: Router,
+    public local: LocalStorageService) { 
     this.onLoading();
   }
 
@@ -36,14 +40,16 @@ export class ShowproductsComponent implements OnInit {
   }
 
   onLoading(){
+    
     try {
-      this.stdb.showItems().subscribe(
+      this.token = this.local.get('user').token;
+      this.stdb.showItems(this.token).subscribe(
         data => {
           this.storedb = data;
         },
         err => {
-          console.log(err)
           this.router.navigate(['/signin']);
+          console.log(err)
         }
       )
     } catch (error) {

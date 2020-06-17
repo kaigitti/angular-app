@@ -13,7 +13,6 @@ var storeSchema = new mongoose.Schema({
     p_detail: String,
     p_quantity: Number,
     p_price: Number,
-    file: String,
     p_img: String
 }, {
     collection: 'products'

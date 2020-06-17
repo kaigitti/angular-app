@@ -96,7 +96,7 @@
                                 </div>
                                 <div class="col-md-9">
                                     <div class="form-group">
-                                        <input type="file" class="form-control-file" formControlName='file'
+                                        <input type="file" class="form-control-file" formControlName='p_img'
                                             (change)="onChangeImg($event)">
                                     </div>
                                 </div>
@@ -107,7 +107,7 @@
 
                                 </div>
                                 <div class="col-md-9">
-                                    <img *ngIf="previewLoaded" class="img-thumbnail" [src]="this.product_Form.value.p_img"
+                                    <img *ngIf="previewLoaded" class="img-thumbnail" [src]="this.product_Form.value.img"
                                         style="height:150px;">
                                 </div>
                             </div>
