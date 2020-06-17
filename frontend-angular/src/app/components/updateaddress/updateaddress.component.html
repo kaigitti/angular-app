@@ -1,0 +1,13 @@
+<div class="containner-fluid" style="margin-top:30px">
+    <div class="card" style="margin-top:30px">
+        <div class="card-header text-white" style="background-color: #1973d6;">
+            <h5>ที่อยู่ของฉัน</h5>
+        </div>
+        <ul class="list-group list-group-flush" *ngFor="let item of address">
+            <li class="list-group-item">ชื่อ: {{item.name_surname}} เบอร์โทร: {{item.tel}} ที่อยู่: {{item.other}}
+                จังหวัด{{item.province}} เขต/อำเภอ{{item.district}} แขวง/ตำบล{{item.sub_district}} {{item.postcode}}
+                <button type="button" class="btn btn-primary btn-sm float-right" >เปลี่ยนแปลงที่อยู่</button>
+            </li>
+        </ul>
+    </div>
+</div>

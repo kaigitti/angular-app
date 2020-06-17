@@ -1,5 +1,5 @@
 import { Component, OnInit, DoBootstrap } from '@angular/core';
-import { FormControl, FormGroup, Validators,} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { StoredbService } from '../../services/storedb.service';
@@ -25,8 +25,8 @@ export class AddproductsComponent implements OnInit {
     p_detail: new FormControl('', [Validators.required]),
     p_quantity: new FormControl('', [Validators.required]),
     p_price: new FormControl('', [Validators.required]),
-    img: new FormControl('',[Validators.required]),
-    file: new FormControl('',[Validators.required])
+    file: new FormControl('', [Validators.required]),
+    p_img: new FormControl('',[Validators.required]),
   });
 
   previewLoaded: boolean = false;
@@ -51,16 +51,22 @@ export class AddproductsComponent implements OnInit {
     );
   }
 
-  onChangeImg(e:any){
-    if(e.target.files.length>0){
+  onChangeImg(e: any){
+    if (e.target.files.length>0){
       const file = e.target.files[0];
+      var pattern = /image-*/;
       const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        this.previewLoaded = true;
-        this.product_Form.patchValue({
-          img: reader.result
-        })
+      if (!file.type.match(pattern)) {
+        alert('invaliad format');
+        this.product_Form.reset();
+      }else{
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          this.previewLoaded = true;
+          this.product_Form.patchValue({
+            p_img: reader.result
+          });
+        };
       }
     }
   }

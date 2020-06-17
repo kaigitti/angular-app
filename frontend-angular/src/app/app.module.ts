@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule  } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -15,6 +15,11 @@ import { EditproductsComponent } from './components/editproducts/editproducts.co
 import { ProfileComponent } from './components/profile/profile.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { PayComponent } from './components/pay/pay.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { UpdateaddressComponent } from './components/updateaddress/updateaddress.component';
+import { AddressComponent } from './components/address/address.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +29,12 @@ import { SignupComponent } from './components/signup/signup.component';
     EditproductsComponent,
     ProfileComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    PayComponent,
+    PaymentComponent,
+    UpdateaddressComponent,
+    AddressComponent
+
   ],
   imports: [
     BrowserModule,

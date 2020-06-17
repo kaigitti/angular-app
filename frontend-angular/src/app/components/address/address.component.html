@@ -1,0 +1,169 @@
+<div class="card">
+    <div class="card-body">
+                        <h4 class="card-title">Add Address</h4>
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-8">
+                <form [formGroup]="address_Form">
+                    <div class="card">
+                        <div class="card-header text-white" style="background-color: rgb(219, 91, 0);">
+                            Address Form
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    ID :
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="รหัสลูกค้า"
+                                            formControlName='id'>
+                                        <div *ngIf="id.invalid && (id.dirty || id.touched)" class="alert alert-danger">
+                                            <div *ngIf="id.errors.required">
+                                                ID is required.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    Name-Lastname :
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="ชื่อ-นามสกุล"
+                                            formControlName='name_surname'>
+                                        <div *ngIf="name_surname.invalid && (name_surname.dirty || name_surname.touched)"
+                                            class="alert alert-danger">
+                                            <div *ngIf="name_surname.errors.required">
+                                                Name and Lastname is required.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    Telephone Number :
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="number" class="form-control" placeholder="เบอร์โทรศัพท์"
+                                            formControlName='tel'>
+                                        <div *ngIf="tel.invalid && (tel.dirty || tel.touched)"
+                                            class="alert alert-danger">
+                                            <div *ngIf="tel.errors.required">
+                                                Telephone number is required.
+                                            </div>
+                                            <div *ngIf="tel.errors.pattern">
+                                                Your Telephone number is incorrect!!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    Province:
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="จังหวัด"
+                                            formControlName='province'>
+                                        <div *ngIf="province.invalid && (province.dirty || province.touched)"
+                                            class="alert alert-danger">
+                                            <div *ngIf="province.errors.required">
+                                                Province is required.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    District :
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="เขต/อำเภอ"
+                                            formControlName='district'>
+                                        <div *ngIf="district.invalid && (district.dirty || district.touched)"
+                                            class="alert alert-danger">
+                                            <div *ngIf="district.errors.required">
+                                                District is required.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    Subdistrict :
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="แขวง/ตำบล"
+                                            formControlName='sub_district'>
+                                        <div *ngIf="sub_district.invalid && (sub_district.dirty || sub_district.touched)"
+                                            class="alert alert-danger">
+                                            <div *ngIf="sub_district.errors.required">
+                                                Subdistrict is required.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    Postcode :
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="number" class="form-control" placeholder="รหัสไปรษณีย์"
+                                            formControlName='postcode'>
+                                        <div *ngIf="postcode.invalid && (postcode.dirty || postcode.touched)"
+                                            class="alert alert-danger">
+                                            <div *ngIf="postcode.errors.required">
+                                                Postcode is required.
+                                            </div>
+                                            <div *ngIf="postcode.errors.pattern">
+                                                Your Postcode is incorrect!!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    Other :
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="รายละเอียดที่อยู่อื่นๆ"
+                                            formControlName='other'>
+                                        <div *ngIf="other.invalid && (other.dirty || other.touched)"
+                                            class="alert alert-danger">
+                                            <div *ngIf="other.errors.required">
+                                                Other is required.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-primary"
+                                        (click)="addAddress()">Add</button>&nbsp;
+                                    <button type="reset" class="btn btn-danger" (click)="resetForm()">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

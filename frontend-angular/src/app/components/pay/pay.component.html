@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-header text-white" style="background-color: #1973d6;">
+      <h5>ข้อมูลการชำระเงิน</h5>
+    </div>
+    <div class="card-body">
+    <h5 class="card-title">ยอดชำระเงินทั้งหมด : </h5>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">ธนาคารไทยพาณิชย์ (SCB)</h5>
+      <p class="card-text">ชื่อบัญชี : Easy Store</p>
+      <p class="card-text">บัญชีเลขที่ : 468 xxxx xxx</p>
+      <h5 class="card-title">ธนาคารทหารไทย (TMB)</h5>
+      <p class="card-text">ชื่อบัญชี : Easy Store</p>
+      <p class="card-text">บัญชีเลขที่ : 610 xxxx xxx</p>
+      <h5 class="card-title">ธนาคารกสิกรไทย (KBANK)</h5>
+      <p class="card-text">ชื่อบัญชี : Easy Store</p>
+      <p class="card-text">บัญชีเลขที่ : 007 xxxx xxx</p>
+      <ul style="margin-top: 30px;">
+        <li>กรุณาชำระเงินก่อนเวลา 23:59 น. มิฉะนั้นระบบจะทำการลบคำสั่งซื้อของคุณ</li>
+      </ul>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">แนบหลักฐานการชำระเงิน :</h5>
+        <div class="form-group">
+          <input type="file" class="form-control-file" formControlName='file' (change)="onChangeImg($event)">
+        </div>
+    </div>
+          </div>
+          <button type="button" class="btn btn-primary btn-lg float-right" style="margin-top: 30px;">ยืนยันการชำระเงิน</button>

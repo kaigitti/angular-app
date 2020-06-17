@@ -1,66 +1,67 @@
-<div class="main-header" style="background-color: brown; background-repeat: no-repeat; background-position: center;background-size: cover; width: 100%; height: 100%;">
-<div class="container" style="margin-top:80px; background-color: blueviolet;">
+<div class="container-fluid">
     <div class="row">
-        
-        <div class="col-md-3">
-
+        <div class="col-md-7">
         </div>
-        <div class="col-md-6">
-            <div class="col-md-10">
-                <i class="fa fa-shopping-bag"  aria-hidden="true" style='font-size:47px; color:rgb(235, 98, 1); position:absolute; left:22%;'></i>
-                <h3 class="modal-title" style="color:rgb(235, 98, 1); text-align: center; font-size:40px;">
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    Easy Shop</h3>
-                <br><br>
-            </div>
-            <div class="col-md-10">
-                <h2 class="modal-title" style="color:rgb(245, 74, 6); position:absolute; left:5%; font-weight: bold;">Sign In</h2>
-                <br><br>
-             </div>
-                <form [formGroup]="authForm">
+        <div class="col-md-4">
+
+            <div class="card" style="background-color:#ffffff;">
                 <div class="card-body">
+                    <div class="card-title">
 
-                   <div class="row">
-                       <div class="col-md-10">
-                           <div class="form-group">
-                             <input type="text" class="form-control" placeholder="Enter Username" style="background: rgb(222, 223, 223) ; height:50px" formControlName="username">
-                           </div>
-                           <div class="form-group">
-                            <br>
-                            <input type="password" placeholder="Enter Password" style="background: rgb(222, 223, 223); height:50px" class="form-control" formControlName="password">
-                          </div>
-                          <div style="position:absolute; left:98%;top:0%; width:200px;" *ngIf="username.errors && (username.dirty || username.touched)" class="alert alert-danger">
-                            <div *ngIf="username.errors.required">
-                              username is required.
+                    </div>
+
+                    <div class="card-subtitle">
+                        <h2 class="modal-title" style="color:#1973d6;">
+                            Sign In
+                        </h2>
+                    </div>
+
+                    <div class="card-text">
+                        <div class="row">
+                            <div class="col-md-1">
+
+                            </div>
+                            <div class="col-md-10">
+                                <form [formGroup]="authForm">
+                                    <input type="text" class="form-control" placeholder="Enter Username"
+                                        style="height:50px; margin-top:20px" formControlName="username">
+                                    <div style="position:absolute; left:100%; width:200px; top:14.5%"
+                                        *ngIf="username.errors && (username.dirty || username.touched)"
+                                        class="alert alert-danger">
+                                        <div *ngIf="username.errors.required">
+                                            Username is required.
+                                        </div>
+                                    </div>
+                                    <input type="password" class="form-control" placeholder="Enter Password"
+                                        style="height:50px; margin-top:20px" formControlName="password">
+                                    <div style="position:absolute; left:100%; width:200px; top:64%"
+                                        *ngIf="password.errors && (password.dirty || password.touched)"
+                                        class="alert alert-danger">
+                                        <div *ngIf="password.errors.required">
+                                            Password is required.
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-primary"
+                                        style="width:100%; height:45px; font-weight:bold; color: rgb(255, 255, 255); font-size:20px; margin-top:20px"
+                                        (click)="signIn()">
+                                        Sign in
+                                    </button>
+                                    <label style="font-size: 20px; margin-top:20px">Don't have an account? &nbsp;<label
+                                            style="color: #1973d6; font-weight:bold; font-size:20px;"
+                                            data-toggle="modal" data-target="#exampleModal" (click)="signup()">
+                                            Sign Up</label>
+                                    </label>
+                                </form>
+                            </div>
+                            <div class="col-md-1">
                             </div>
                         </div>
-                        <div style="position:absolute; left:98%;top:57%; width:200px;" *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
-                            <div *ngIf="password.errors.required">
-                              password is required.
-                            </div>
-                        </div>
-                       </div>
-                   </div>
-
-                   <div class="row">
-                    <div class="col-md-10">
-                        <br>
-                        <button type="button" style="border:none;background-color:rgb(240, 124, 41);width:100%; height:45px; font-weight:bold; color: rgb(255, 255, 255); font-size:20px;" (click)="signIn()">
-                            Sign in</button>
-                        <br><br><br>
-                        <label style="font-size: 20px;">Don't have an account? </label>&nbsp;&nbsp;
-                        <label style="color:rgb(20, 101, 194); font-weight:bold; font-size:20px;" data-toggle="modal" data-target="#exampleModal" (click)="signup()">
-                            Sign Up</label>
                     </div>
                 </div>
-
-                </div>
-            </form>
+            </div>
         </div>
-        <div class="col-md-3">
-        
+        <div class="col-md-1">
         </div>
-
     </div>
-</div>
+    
 </div>

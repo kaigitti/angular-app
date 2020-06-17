@@ -13,6 +13,7 @@ var storeSchema = new mongoose.Schema({
     p_detail: String,
     p_quantity: Number,
     p_price: Number,
+    file: String,
     p_img: String
 }, {
     collection: 'products'
@@ -66,36 +67,36 @@ router.route('/addItems').post((req, res) => {
         })
 })
 
-// router.route('/updateItems/:_id').put((req,res) => {
-//     Product.findByIdAndUpdate(req.params._id, req.body, (err,data) => {
-//         if(err){
-//             console.log('Update Items Failed : '+err);
-//         }else{
-//             console.log('Update Items Success!!');
-//             console.log(result)
-//             res.end();
-//         }
-//     });
-// });
+router.route('/updateItems/:_id').put((req,res) => {
+    Product.findByIdAndUpdate(req.params._id, req.body, (err,data) => {
+        if(err){
+            console.log('Update Items Failed : '+err);
+        }else{
+            console.log('Update Items Success!!');
+            console.log(result)
+            res.end();
+        }
+    });
+});
 
-// router.route('/updateItems/:_id').put(async (req,res) => {
-//     const payload = req.body;
-//     const { p_id } = req.params
+router.route('/updateItems/:_id').put(async (req,res) => {
+    const payload = req.body;
+    const { p_id } = req.params
 
-//     const product = await Product.findByIdAndUpdate(p_id, { $set: payload})
-//     res.json(product);
-// })
+    const product = await Product.findByIdAndUpdate(p_id, { $set: payload})
+    res.json(product);
+})
 
 
-// router.route('/deleteItems/:p_id').delete((req,res) => {
-//     Product.findByIdAndRemove({p_id: req.params.id},(err,data) => {
-//         if(err){
-//             console.log(err);
-//         }else{
-//             res.json(data);
-//         }
-//     });
-// });
+router.route('/deleteItems/:p_id').delete((req,res) => {
+    Product.findByIdAndRemove({p_id: req.params.id},(err,data) => {
+        if(err){
+            console.log(err);
+        }else{
+            res.json(data);
+        }
+    });
+});
 
 router.route('/deleteItems/:p_id').delete(async (req, res) => {
     const { p_id } = req.params

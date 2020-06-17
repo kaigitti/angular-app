@@ -1,0 +1,52 @@
+<div class="containner-fluid" style="margin-top:30px">
+    <div class="card" style="margin-top:30px">
+        <div class="card-header text-white" style="background-color: #1973d6;">
+            <h5>ที่อยู่ในการจัดส่ง</h5>
+        </div>
+        <h6 style="margin: 10px 10px 10px 10px;">ที่อยู่ปัจจุบัน</h6>
+        <ul *ngFor="let item of address">
+            <li>
+                ชื่อ: {{item.name_surname}}
+            </li>
+            <li>เบอร์โทร: {{item.tel}}</li>
+            <li>ที่อยู่: {{item.other}} จังหวัด{{item.province}} เขต/อำเภอ{{item.district}}
+                แขวง/ตำบล{{item.sub_district}} {{item.postcode}}</li>
+        </ul>
+    </div>
+    <button type="button" class="btn btn-dark btn-sm" style="margin-top:10px"
+        (click)="submitData()">เพิ่มที่อยู่</button>
+    <button type="button" class="btn btn-warning btn-sm" style="margin: 10px 0px 0px 10px;"
+        (click)="editAddress()">เปลี่ยนที่อยู่</button>
+    <div class="card" style="margin-top:30px">
+        <div class="card-header text-white" style="background-color: #1973d6;">
+            <h5>สั่งซื้อสินค้าแล้ว</h5>
+        </div>
+        <div class="card-body">
+
+
+        </div>
+    </div>
+    
+    <div class="card" style="margin-top:30px">
+        <div class="card-header text-white" style="background-color: #1973d6;">
+            <h5>วิธีชำระเงิน</h5>
+        </div>
+        <div class="card-body">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option1"> ชำระผ่าน ATM
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option2"> โอน / ชำระผ่านบัญชีธนาคาร
+                </label>
+            </div>
+            <blockquote class="blockquote text-right" style="margin-top:30px">
+                <h6>ราคาสินค้า :</h6>
+                <h6>รวมการจัดส่ง :</h6>
+                <h6>ราคาสินค้าที่ต้องชำระทั้งหมด :</h6>
+            </blockquote>
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary btn-lg float-right" style="margin-top: 30px;"
+        (click)="PayMoney()">สั่งสินค้า</button>
+</div>
